@@ -11,7 +11,7 @@ except ImportError:
     print("ERROR: PRAW is not detected on your device")
     print("The PRAW package is needed to run the bot")
 
-user_agent = "testbot by /u/MeSoooCorny"
+user_agent = "testbot by /u/gasparek"
 
 # create praw.reddit object
 r = praw.Reddit(user_agent)
@@ -21,7 +21,7 @@ r.login()
 print("Logging in...")
 
 # Enter the keyword to search the comments for 
-keywords = ['funny']
+keywords = ['defiantly']
 # cache to make sure the bot doesn't keep spamming the same comment
 cache = []
 
@@ -35,7 +35,7 @@ def run():
         match = any(string in comment_text for string in keywords)
         if comment.id not in cache and match:
             print("Match found: " + comment.id)
-            comment.reply('Yes you are..')
+            comment.reply('I think you meant definitely.')
             cache.append(comment.id)
     print("Done!")
 
